@@ -1,13 +1,9 @@
-//process.env.AMBIENTE_PROCESSO = "desenvolvimento";
-process.env.AMBIENTE_PROCESSO = "producao";
-
 const express = require("express");
 const path = require("path");
 const bodyParser = require('body-parser');
 const router = require("./src/routes/index");
-const { sql, connect } = require("./src/infra/conexao");
 const app = express();
-const port = process.env.AMBIENTE_PROCESSO == "desenvolvimento" ? 3333 : 80;
+const port = 80;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, "public"));
@@ -53,14 +49,10 @@ app.get("/dashboard", (req, res) => {
     res.sendFile("dashboard.html", { root: "public" });
 })
 
-connect().then(() => {
-    app.listen(port, (error) => {
-        if(error) {
-            console.log(`Erro: ${error}`);
-            return;
-        }
-        console.log(`Servidor rodando na porta ${port}`);
-    });
-}).catch(err => {
-    console.error("Erro ao conectar ao SQL Server: ", err);
+app.listen(port, (error) => {
+    if(error) {
+        console.log(`Erro: ${error}`);
+        return;
+    }
+    console.log(`Subiu na porta ${port}`);
 });
