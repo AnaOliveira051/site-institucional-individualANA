@@ -276,6 +276,7 @@
 
 
 .main-top {
+    justify-content: space-around;
     img:nth-child(1) {
       position: absolute;
       width: 30px;
@@ -293,24 +294,38 @@
       margin-left: auto;
       margin-right: auto;
     }
-  
-    i:nth-child(3) {
-      position: absolute;
-      right: 20px;
-      font-size: 20px;
-      margin: 10px 30px;
-      color: rgb(19, 19, 19);
-      cursor: pointer;
-    }
-  
-    i:nth-child(3):hover{
-      color: rgb(110, 109, 109);
-      transition: color 0.5s;
-    }
 
     h6, .fa-regular .fa-clock{
         position: absolute;
         margin-left: 760px;
     }
-    
+
+    #ativador{
+        position: relative;
+        color: rgb(85, 83, 83);
+        justify-content: space-around;
+        align-items: center;
+        font-size: 14px;
+        display: flex;
+        padding: 10px;
+        width: 20%;
+        cursor: pointer;
+        /* flex-direction: row-reverse; */
+        background-color: aliceblue;
+    }
+
+    li i{
+        position: absolute;
+        display: flex;
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* right: -10px; */
+        /* margin: 10px 30px; */
+        cursor: pointer;
+        font-size: 20px;
+        color: rgb(19, 19, 19);
+        /* align-self: center; */
+        /* flex-direction: row-reverse; */
+        /* width: 15%;*/
+    }
   }

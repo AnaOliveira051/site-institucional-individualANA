@@ -39,15 +39,6 @@
                         <i class="fas fa-question-circle"></i>
                         <span class="nav-item">Suporte</span>
                     </a></li>
-                <li id="ativador">
-                    <i class="fas fa-solid fa-power-off"></i>
-                    <span class="nav-item">Desligar Máquina</span>
-                    <div class="listaOpcoes">
-                        <span onclick="desligar(1)">Desligar</span>
-                        <span onclick="desligar(2)">Reiniciar</span>
-                        <span onclick="desligar(3)">Suspender</span>
-                    </div>
-                </li>
                 
                 <li><a href="./home.html" class="logout">
                         <i class="fas fa-sign-out-alt"></i>
@@ -60,7 +51,16 @@
             <div class="main-top">
                 <img src="./imagens/icons-dash/arrow-left-svgrepo-com.svg" alt="" id="seta_main">
                 <h1>Visualização da Máquina - 0221</h1>
-                <i class="fas fa-user-cog"></i>
+                <li id="ativador">
+                    <i class="fas fa-solid fa-power-off"></i>
+                    <span class="nav-item">Desligar Máquina</span>
+                    <div class="listaOpcoes">
+                        <span onclick="desligar(1)">Desligar</span>
+                        <span onclick="desligar(2)">Reiniciar</span>
+                        <span onclick="desligar(3)">Suspender</span>
+                    </div>
+                </li>
+                <!-- <i class="fas fa-user-cog"></i> -->
             </div>
 
             <div class="graficos-wrapper">
@@ -150,12 +150,13 @@
         const isActive = ativador.classList.contains('active');
         ativador.classList.toggle('active');
         listaOpcoes.style.display = isActive ? 'none' : 'flex';
+        listaOpcoes.style.display = isActive ? ativador.style.color = 'rgb(110, 109, 109)' : 'rgb(19, 19, 19)';
 
     }
 
     ativador.addEventListener('click', toggleListaOpcoes);
 
-    const alertButton = document.getElementById('deligar');
+    //const alertButton = document.getElementById('desligar');
       
 
     function desligar(chamada){

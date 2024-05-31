@@ -79,7 +79,14 @@
             <section class="main">
               <div class="main-top">
                 <h1>Home</h1>
-                <i class="fas fa-user-cog"></i>
+                <i class="fas fa-user-cog" id="ativador">
+                  <div class="listaOpcoes">
+                    <p>Configurações</p>
+                    <span>Janelas</span>
+                    <span onclick="desligar(2)">Reiniciar</span>
+                    <span onclick="desligar(3)">Suspender</span>
+                </div>
+                </i>
               </div>
 
               <div class="titulo">
@@ -209,6 +216,18 @@
   if(nivelAcesso == "Baixo" || nivelAcesso == "Médio"){
     botaoUsuario.style.display = 'none';
   }
+
+  const listaOpcoes = document.querySelector('.listaOpcoes');
+    const ativador = document.querySelector('#ativador');
+
+    function toggleListaOpcoes(){
+        const isActive = ativador.classList.contains('active');
+        ativador.classList.toggle('active');
+        listaOpcoes.style.display = isActive ? 'none' : 'flex';
+
+    }
+
+    ativador.addEventListener('click', toggleListaOpcoes);
 
 </script>
 
